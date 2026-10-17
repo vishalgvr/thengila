@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #080A09;
+  --bg-secondary: #101411;
+  --bg-card: #171B17;
+  --forest-green: #173F35;
+  --antique-gold: #C6A66B;
+  --champagne-gold: #E3D2A7;
+  --warm-ivory: #F2EBDD;
+  --muted-text: #AAA79D;
+  --date-brown: #70452F;
+  --subtle-border: rgba(198, 166, 107, 0.22);
+  --gold-glow: rgba(198, 166, 107, 0.12);
+}
+
+@theme {
+  --color-primary-bg: #080A09;
+  --color-secondary-bg: #101411;
+  --color-card-bg: #171B17;
+  --color-forest: #173F35;
+  --color-gold: #C6A66B;
+  --color-gold-champagne: #E3D2A7;
+  --color-ivory: #F2EBDD;
+  --color-muted: #AAA79D;
+  --color-date-brown: #70452F;
+  --color-border-subtle: rgba(198, 166, 107, 0.22);
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080A09;
+  color: #F2EBDD;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #080A09;
+  color: #F2EBDD;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #C6A66B;
+  color: #080A09;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080A09;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c241e;
+  border-radius: 4px;
+  border: 1px solid rgba(198, 166, 107, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A66B;
+}
+
+/* Typography Helpers */
+.font-serif-luxury {
+  font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.tracking-ultra-wide {
+  letter-spacing: 0.22em;
+}
+
+/* Subtle Gold Text & Border Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F2EBDD 0%, #E3D2A7 40%, #C6A66B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-subtle {
+  color: #C6A66B;
+}
+
+.border-gold-subtle {
+  border-color: rgba(198, 166, 107, 0.22);
+}
+
+.bg-radial-hero {
+  background: radial-gradient(circle at 50% 35%, rgba(23, 63, 53, 0.25) 0%, rgba(8, 10, 9, 0.95) 70%, #080A09 100%);
+}
+
+.bg-radial-dates {
+  background: radial-gradient(circle at 75% 50%, rgba(112, 69, 47, 0.18) 0%, rgba(8, 10, 9, 0.9) 65%, #080A09 100%);
+}
+
+.bg-radial-fish {
+  background: radial-gradient(circle at 25% 50%, rgba(23, 63, 53, 0.35) 0%, rgba(16, 20, 17, 0.95) 75%, #080A09 100%);
+}
+
+/* Floating Date Keyframes */
+@keyframes floatSlow1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(4deg);
+  }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-34px) rotate(-5deg);
+  }
+}
+
+@keyframes floatSlow3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+.animate-float-1 {
+  animation: floatSlow1 9s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 12s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatSlow3 15s ease-in-out infinite;
+}
+
+/* Fish Swimming Animations */
+@keyframes swimAcrossRight {
+  0% {
+    transform: translateX(-150%) translateY(0px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110vw) translateY(-15px);
+    opacity: 0;
+  }
+}
+
+@keyframes swimAcrossLeft {
+  0% {
+    transform: translateX(110vw) translateY(0px) scaleX(-1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-150%) translateY(20px) scaleX(-1);
+    opacity: 0;
+  }
+}
+
+@keyframes finUndulate {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.92) skewX(2deg);
+  }
+}
+
+.animate-swim-right-1 {
+  animation: swimAcrossRight 34s linear infinite;
+}
+
+.animate-swim-right-2 {
+  animation: swimAcrossRight 46s linear infinite;
+  animation-delay: -18s;
+}
+
+.animate-swim-left-1 {
+  animation: swimAcrossLeft 40s linear infinite;
+  animation-delay: -9s;
+}
+
+.animate-swim-left-2 {
+  animation: swimAcrossLeft 52s linear infinite;
+  animation-delay: -28s;
+}
+
+/* Underwater Light Beam Shimmer */
+@keyframes causticShimmer {
+  0%, 100% {
+    opacity: 0.12;
+    transform: skewX(-12deg) scaleX(1);
+  }
+  50% {
+    opacity: 0.22;
+    transform: skewX(-9deg) scaleX(1.08);
+  }
+}
+
+.animate-caustic {
+  animation: causticShimmer 10s ease-in-out infinite;
+}
+
+/* Luxury Grain Overlay */
+.grain-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .animate-swim-right-1,
+  .animate-swim-right-2,
+  .animate-swim-left-1,
+  .animate-swim-left-2,
+  .animate-caustic {
+    animation: none !important;
+  }
+}
