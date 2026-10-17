@@ -97,6 +97,7 @@ export function HeroSection() {
                   alt={`${BRAND_CONFIG.displayName} Handcrafted Dates Pickle in Glass Jar`}
                   fill
                   priority
+                  loading="eager"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 42vw"
                   className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
